@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en" data-theme="day">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Silmi Abshar | Enterprise Fullstack Developer</title>
+<meta name="description" content="Portfolio of Silmi Abshar bin Kaharuddin — Java Spring Boot, Angular and Oracle developer building enterprise systems in Malaysia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<script>
+(()=>{const h=new Date().getHours();let m='auto';try{m=localStorage.getItem('sa-theme')||'auto'}catch{}
+document.documentElement.dataset.theme=m==='auto'?(h<7||h>=19?'night':'day'):m;document.documentElement.dataset.mode=m})();
+</script>
+<style>
+:root{
+  --ink:#04101f;--ink-2:#0a1a2f;--paper:#f6fbff;
+  --blue:#1f5eff;--sky:#7cc6ff;--cyan:#39d7ff;--amber:#ffb454;--green:#22c55e;
+  --muted:#8fa3bd;--line:rgba(143,163,189,.18);--line-strong:rgba(143,163,189,.36);
+  --shell:min(1360px,calc(100% - 64px));
+  --mono:"JetBrains Mono",ui-monospace,monospace;--sans:"Space Grotesk",system-ui,sans-serif;--body:Inter,system-ui,sans-serif;
+  --ease:cubic-bezier(.22,.78,.3,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--ink)}
+body{margin:0;background:var(--ink);color:#f3f7fb;font-family:var(--body);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+::selection{background:var(--cyan);color:var(--ink)}
+.mono{font-family:var(--mono)}
+
+/* ---------- chrome ---------- */
+.scroll-meter{position:fixed;inset:0 0 auto;height:2px;z-index:900;background:rgba(255,255,255,.08)}
+.scroll-meter i{display:block;height:100%;width:0;background:var(--cyan)}
+.navbar{position:fixed;top:0;left:0;width:100%;height:72px;z-index:800;display:grid;grid-template-columns:auto 1fr auto;align-items:center;padding:0 32px;color:var(--ink);transition:background .3s,color .3s}
+.navbar.scrolled{color:#f3f7fb;background:rgba(4,16,31,.78);border-bottom:1px solid var(--line);backdrop-filter:blur(16px)}
+.brand{font:700 22px/1 var(--sans);letter-spacing:-.04em}.brand span{color:var(--blue)}
+.nav-links{display:flex;justify-self:center;gap:clamp(14px,2.2vw,34px)}
+.nav-links a{position:relative;font:500 10px/1 var(--mono);letter-spacing:.08em;opacity:.6;padding-bottom:8px}
+.nav-links a:after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--cyan);transition:right .25s}
+.nav-links a:hover{opacity:1}.nav-links a:hover:after{right:0}
+.nav-tools{display:flex;align-items:center;gap:14px}
+.status{display:flex;align-items:center;gap:7px;font:500 9px var(--mono);letter-spacing:.08em}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(34,197,94,.14);animation:pulse 2.6s ease infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(34,197,94,.12)}50%{box-shadow:0 0 0 7px rgba(34,197,94,.02)}}
+.theme-toggle{display:flex;border:1px solid currentColor;padding:0;overflow:hidden}
+.theme-toggle button{padding:8px 10px;font:500 9px var(--mono);letter-spacing:.08em;opacity:.55}
+.theme-toggle button[aria-pressed=true]{opacity:1;background:currentColor;color:#fff;mix-blend-mode:difference}
+.menu-toggle{display:none;width:36px;height:36px;padding:8px}.menu-toggle i{display:block;height:1px;margin:6px 0;background:currentColor}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;color:var(--ink);
+  background:linear-gradient(180deg,#a9d8ff 0%,#d6ecff 55%,#f0f8ff 100%)}
+.sun{position:absolute;top:12%;right:14%;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#fff8e0,#ffd88a 45%,rgba(255,216,138,0) 70%);filter:blur(4px);transition:opacity .8s}
+.cloud{position:absolute;width:56vw;height:22vw;border-radius:50%;background:#fff;filter:blur(38px);opacity:.85;animation:drift 60s linear infinite alternate}
+.cloud.a{left:-14vw;bottom:24%}.cloud.b{right:-18vw;bottom:34%;width:48vw;animation-duration:80s;opacity:.7}.cloud.c{left:22vw;bottom:8%;width:70vw;height:18vw;opacity:.95}
+@keyframes drift{to{transform:translateX(6vw)}}
+.stars{position:absolute;inset:0;opacity:0;transition:opacity .8s;
+  background-image:radial-gradient(1px 1px at 12% 22%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 40% 12%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 66% 30%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 84% 18%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 28% 44%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 74% 52%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 52% 8%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 92% 40%,#fff 50%,transparent 51%)}
+.hero-content{position:relative;z-index:2;width:var(--shell);margin:0 auto;padding:140px 0 120px}
+.hero-greeting{display:flex;gap:18px;align-items:center;margin-bottom:26px;font:600 11px var(--mono);letter-spacing:.12em}
+.hero-greeting b{font-weight:500;font-size:9px;color:#1d6a3d}
+.hero h1{margin:0;max-width:1200px;font:600 clamp(3.6rem,8vw,8.2rem)/.88 var(--sans);letter-spacing:-.07em;text-wrap:balance}
+.hero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.4px rgba(4,16,31,.72)}
+.hero-role{margin:28px 0 0;font:500 clamp(13px,1.2vw,17px) var(--mono)}
+.hero-role b{color:var(--blue);padding:0 10px;font-weight:500}
+.hero h2{margin:26px 0 0;font:600 clamp(1.1rem,1.9vw,1.6rem)/1.05 var(--sans);letter-spacing:-.03em}
+.hero-summary{max-width:540px;margin:18px 0 0;font-size:17px;line-height:1.65;color:rgba(4,16,31,.74)}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:28px;margin-top:34px}
+.button{min-height:50px;display:inline-flex;align-items:center;justify-content:space-between;gap:34px;padding:0 18px;border:1px solid transparent;font:600 11px var(--mono);letter-spacing:.04em;transition:transform .25s,background .25s,color .25s}
+.button:hover{transform:translateY(-2px)}.button span{transition:transform .25s}.button:hover span{transform:translate(4px,-1px)}
+.button-dark{background:var(--ink-2);color:#fff;border-color:var(--ink-2)}
+.button-light{border-color:rgba(243,247,251,.34);background:rgba(243,247,251,.07);color:#fff}
+.button-light:hover{background:#f3f7fb;color:var(--ink)}
+.text-link{display:inline-flex;gap:16px;padding:10px 0;border-bottom:1px solid currentColor;font:600 10px var(--mono);letter-spacing:.06em}
+.quicklinks{display:flex;gap:24px;margin-top:44px;font:500 10px var(--mono);letter-spacing:.08em}
+.quicklinks a{opacity:.7}.quicklinks a:hover{opacity:1}
+.hero-meta{position:absolute;z-index:3;right:max(32px,calc((100% - 1360px)/2));bottom:40px;display:flex;gap:40px;margin:0}
+.hero-meta div{display:flex;flex-direction:column;gap:8px}
+.hero-meta dt{font:500 9px var(--mono);letter-spacing:.1em;opacity:.55}
+.hero-meta dd{margin:0;display:flex;align-items:center;gap:7px;font:600 11px var(--mono);letter-spacing:.06em}
+.scroll-cue{position:absolute;z-index:3;left:max(32px,calc((100% - 1360px)/2));bottom:40px;display:flex;align-items:center;gap:12px;font:500 9px var(--mono);letter-spacing:.12em;opacity:.7}
+.scroll-cue i{width:1px;height:38px;background:currentColor;animation:cue 2s ease infinite;transform-origin:top}
+@keyframes cue{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- boot transition ---------- */
+.boot{position:relative;min-height:70svh;display:grid;place-items:center;background:linear-gradient(180deg,#f0f8ff 0%,#dbe9f6 30%,#1a2a44 70%,var(--ink) 100%);color:#fff;text-align:center}
+.boot-card{font:500 11px var(--mono);letter-spacing:.1em}
+.boot-card p{margin:0 0 20px;opacity:.7}
+.boot-card ul{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:8px}
+.boot-card li{display:flex;justify-content:space-between;width:280px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.boot-card li span{color:var(--green)}
+.boot-card strong{display:block;margin-bottom:20px;color:var(--amber)}
+.boot-card h2{margin:0;font:600 clamp(1.8rem,4vw,3rem)/1 var(--sans);letter-spacing:-.05em}
+
+/* ---------- infrastructure ---------- */
+.infra{position:relative;background:var(--ink)}
+.infra-grid{position:absolute;inset:0;pointer-events:none;opacity:.35;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;
+  mask-image:linear-gradient(180deg,transparent,#000 12%,#000 88%,transparent)}
+.shell{position:relative;width:var(--shell);margin:0 auto;padding:120px 0}
+.section-code{margin:0 0 10px;font:500 10px var(--mono);letter-spacing:.12em;color:var(--muted)}
+.heading{margin:0;font:600 clamp(2.4rem,5vw,4.6rem)/.92 var(--sans);letter-spacing:-.06em}
+.heading-sub{display:block;margin:18px 0 0;font-size:16px;color:var(--muted)}
+
+.hub{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;padding-bottom:56px;border-bottom:1px solid var(--line)}
+.hub-right p{margin:0 0 6px;font-size:16px}.hub-right b{font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted)}
+.hub-right ul{list-style:none;padding:0;margin:20px 0 14px;display:flex;flex-wrap:wrap;gap:8px}
+.hub-right li{padding:8px 12px;border:1px solid var(--line-strong);font:500 10px var(--mono);letter-spacing:.06em}
+.hub-right small{display:flex;align-items:center;gap:8px;font:500 9px var(--mono);letter-spacing:.1em;color:var(--green)}
+
+.modules{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:1px;background:var(--line)}
+.module{position:relative;min-height:230px;padding:26px 24px;background:var(--ink);display:flex;flex-direction:column;transition:background .3s}
+.module:hover{background:var(--ink-2)}
+.module span{font:500 9px var(--mono);letter-spacing:.12em;color:var(--muted)}
+.module h3{margin:18px 0 10px;font:600 26px/1 var(--sans);letter-spacing:-.04em}
+.module p{margin:0;font-size:14px;line-height:1.55;color:var(--muted);max-width:26ch}
+.module em{margin-top:auto;padding-top:24px;font:600 10px var(--mono);letter-spacing:.08em;font-style:normal;color:var(--cyan)}
+.module.wide{grid-column:span 2}
+.module-lines{position:absolute;right:24px;top:26px;display:flex;gap:6px}.module-lines i{width:2px;height:34px;background:var(--blue);opacity:.35}
+.module-lines i:nth-child(2){height:52px}.module-lines i:nth-child(3){height:22px;opacity:.7}.module-lines i:nth-child(4){height:44px}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:380px 1fr;gap:56px;margin-top:64px}
+.id-card{align-self:start;position:sticky;top:96px;padding:22px;border:1px solid var(--line-strong);background:linear-gradient(160deg,rgba(31,94,255,.14),rgba(4,16,31,.4))}
+.id-top{display:flex;justify-content:space-between;font:500 9px var(--mono);letter-spacing:.1em;color:var(--muted)}
+.id-top span:last-child{display:flex;gap:7px;align-items:center;color:var(--green)}
+.id-name{margin:64px 0 40px}.id-name span{display:block;font:500 9px var(--mono);letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.id-name strong{font:600 54px/1 var(--sans);letter-spacing:-.06em}
+.id-card dl{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;margin:0}
+.id-card dt{font:500 9px var(--mono);letter-spacing:.1em;color:var(--muted)}.id-card dd{margin:6px 0 0;font-size:14px}
+.copy section{padding:22px 0;border-top:1px solid var(--line)}
+.copy section span{display:block;margin-bottom:10px;font:500 9px var(--mono);letter-spacing:.12em;color:var(--muted)}
+.copy p{margin:0;font-size:16px;line-height:1.65;color:#c9d5e3;max-width:62ch}
+.copy .large{font:500 clamp(1.3rem,2.2vw,1.9rem)/1.25 var(--sans);letter-spacing:-.03em;color:#fff}
+.focus{display:flex;flex-wrap:wrap;gap:8px}.focus b{padding:8px 12px;border:1px solid var(--line-strong);font:500 10px var(--mono);letter-spacing:.06em}
+
+/* ---------- experience ---------- */
+.timeline{margin-top:56px}
+.role{display:grid;grid-template-columns:220px 1fr;gap:32px;padding:44px 0;border-top:1px solid var(--line)}
+.rail{position:relative;font:500 10px var(--mono);letter-spacing:.1em;color:var(--muted)}
+.rail i{position:absolute;left:0;top:26px;width:34px;height:1px;background:var(--cyan)}
+.role-main p:first-child{margin:0 0 10px;font:500 10px var(--mono);letter-spacing:.1em;color:var(--muted)}
+.role-main h3{margin:0;font:600 30px/1 var(--sans);letter-spacing:-.04em}
+.role-main>span{display:block;margin:8px 0 18px;font-size:14px;color:var(--muted)}
+.role-main>p{margin:0;font-size:16px;line-height:1.6;color:#c9d5e3;max-width:62ch}
+.impact{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin:26px 0;background:var(--line);max-width:640px}
+.impact div{padding:18px;background:var(--ink)}.impact strong{display:block;font:600 30px/1 var(--sans);letter-spacing:-.05em}
+.impact span{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
+.role-main ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.role-main li{padding:7px 11px;border:1px solid var(--line-strong);font:500 10px var(--mono);letter-spacing:.05em;color:#d5dfea}
+
+/* ---------- projects ---------- */
+.featured{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;margin-top:56px;padding:40px;border:1px solid var(--line-strong);background:linear-gradient(140deg,rgba(31,94,255,.16),transparent 60%)}
+.featured h3{margin:14px 0 6px;font:600 clamp(2rem,4vw,3.4rem)/.95 var(--sans);letter-spacing:-.06em}
+.featured h4{margin:0 0 18px;font:500 15px var(--mono);color:var(--cyan)}
+.featured>div>p{margin:0;font:500 10px var(--mono);letter-spacing:.12em;color:var(--muted)}
+.featured .desc{font:400 16px/1.65 var(--body);color:#c9d5e3;letter-spacing:0;max-width:52ch}
+.tags{list-style:none;padding:0;margin:22px 0 28px;display:flex;flex-wrap:wrap;gap:8px}
+.tags li{padding:7px 11px;border:1px solid var(--line-strong);font:500 10px var(--mono);letter-spacing:.05em}
+.flow{display:flex;flex-direction:column;justify-content:center;gap:0}
+.flow ol{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.flow li{position:relative;padding:14px 16px;border:1px solid var(--line-strong);font:500 11px var(--mono);letter-spacing:.08em;background:rgba(4,16,31,.6)}
+.flow li:not(:last-child):after{content:"";position:absolute;left:24px;bottom:-11px;width:1px;height:11px;background:var(--cyan)}
+.flow li:nth-child(3){border-color:var(--cyan)}
+.flow aside{margin-top:20px;padding:14px 16px;border-left:2px solid var(--amber);font:500 10px var(--mono);letter-spacing:.1em;color:var(--muted)}
+.flow aside b{display:block;margin-top:4px;color:var(--amber)}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:1px;background:var(--line)}
+.project{padding:28px 24px;background:var(--ink);display:flex;flex-direction:column;min-height:300px}
+.project p:first-child{margin:0;font:500 9px var(--mono);letter-spacing:.12em;color:var(--muted)}
+.project h3{margin:20px 0 6px;font:600 26px/1 var(--sans);letter-spacing:-.04em}
+.project h4{margin:0 0 14px;font:500 12px var(--mono);color:var(--cyan)}
+.project .desc{margin:0;font-size:14px;line-height:1.55;color:var(--muted)}
+.project .tags{margin:18px 0 0}.project a{margin-top:auto;padding-top:22px;font:600 10px var(--mono);letter-spacing:.08em;color:var(--cyan)}
+
+/* ---------- stack ---------- */
+.stack{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:56px;background:var(--line)}
+.stack div{padding:26px 24px;background:var(--ink)}
+.stack h3{margin:0 0 16px;font:500 10px var(--mono);letter-spacing:.12em;color:var(--muted)}
+.stack ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.stack li{display:flex;justify-content:space-between;font-size:15px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.stack li b{font:500 9px var(--mono);letter-spacing:.08em;color:var(--muted)}
+.stack li.core{color:#fff}.stack li.core b{color:var(--cyan)}
+
+/* ---------- contact / footer ---------- */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
+.contact .heading{font-size:clamp(3rem,7vw,6.5rem)}
+.contact-links{display:grid;gap:1px;background:var(--line)}
+.contact-links a{display:flex;justify-content:space-between;padding:22px 24px;background:var(--ink);font:500 12px var(--mono);letter-spacing:.06em;transition:background .25s}
+.contact-links a:hover{background:var(--ink-2)}.contact-links a span{color:var(--muted)}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;width:var(--shell);margin:0 auto;padding:28px 0 36px;border-top:1px solid var(--line);font:500 9px var(--mono);letter-spacing:.1em;color:var(--muted)}
+footer span{display:flex;align-items:center;gap:8px}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.hero-content>*{opacity:0;transform:translateY(18px);animation:rise 1s var(--ease) forwards}
+.hero-content>*:nth-child(2){animation-delay:.1s}.hero-content>*:nth-child(3){animation-delay:.2s}.hero-content>*:nth-child(4){animation-delay:.28s}.hero-content>*:nth-child(5){animation-delay:.36s}.hero-content>*:nth-child(6){animation-delay:.44s}.hero-content>*:nth-child(7){animation-delay:.52s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* ---------- night theme ---------- */
+[data-theme=night] .hero{color:#f3f7fb;background:linear-gradient(180deg,#020712 0%,#08162c 60%,#0f2544 100%)}
+[data-theme=night] .sun{opacity:0}[data-theme=night] .stars{opacity:1}
+[data-theme=night] .cloud{background:#1d3558;opacity:.6}
+[data-theme=night] .hero h1 em{-webkit-text-stroke-color:rgba(243,247,251,.7)}
+[data-theme=night] .hero-summary{color:rgba(243,247,251,.72)}
+[data-theme=night] .hero-greeting b{color:var(--amber)}
+[data-theme=night] .button-dark{background:#f3f7fb;color:var(--ink);border-color:#f3f7fb}
+[data-theme=night] .navbar{color:#f3f7fb}
+[data-theme=night] .boot{background:linear-gradient(180deg,#0f2544 0%,#0a1a33 40%,var(--ink) 100%)}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.hero-content>*{opacity:1;transform:none}}
+@media (max-width:1000px){
+  .modules,.stack{grid-template-columns:repeat(2,1fr)}.project-grid{grid-template-columns:1fr}
+  .about,.hub,.featured,.contact{grid-template-columns:1fr}.id-card{position:static}
+  .role{grid-template-columns:1fr;gap:12px}.rail i{display:none}
+}
+@media (max-width:720px){
+  :root{--shell:calc(100% - 40px)}
+  .navbar{padding:0 20px}.nav-links{display:none;position:fixed;inset:72px 0 auto;flex-direction:column;gap:22px;padding:28px 20px;background:rgba(4,16,31,.96);color:#fff}
+  .nav-links.open{display:flex}.menu-toggle{display:block}.status{display:none}
+  .hero-content{padding:120px 0 150px}.hero-meta{left:20px;right:auto;bottom:80px;gap:24px}.scroll-cue{bottom:36px;left:20px}
+  .modules,.stack{grid-template-columns:1fr}.module.wide{grid-column:span 1}.impact{grid-template-columns:1fr}
+  .quicklinks{flex-wrap:wrap;gap:16px}
+}
+</style>
+</head>
+<body>
+<div class="scroll-meter" aria-hidden="true"><i id="meter"></i></div>
+
+<header class="navbar" id="navbar">
+  <a class="brand" href="#top">SILMI<span>.</span></a>
+  <nav class="nav-links" id="navLinks" aria-label="Primary">
+    <a href="#about">ABOUT</a><a href="#experience">EXPERIENCE</a><a href="#projects">PROJECTS</a><a href="#stack">STACK</a><a href="#contact">CONTACT</a>
+  </nav>
+  <div class="nav-tools">
+    <div class="theme-toggle" role="group" aria-label="Theme">
+      <button type="button" data-mode="auto">AUTO</button><button type="button" data-mode="day">DAY</button><button type="button" data-mode="night">NIGHT</button>
+    </div>
+    <span class="status"><i class="dot"></i> OPEN TO WORK</span>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="heroName">
+    <div class="sun" aria-hidden="true"></div>
+    <div class="stars" aria-hidden="true"></div>
+    <div class="cloud a" aria-hidden="true"></div><div class="cloud b" aria-hidden="true"></div><div class="cloud c" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-greeting"><span id="greeting">GOOD AFTERNOON.</span><b id="envLabel">SYSTEMS ONLINE</b></div>
+      <h1 id="heroName">SILMI ABSHAR<br><em>BIN KAHARUDDIN</em></h1>
+      <p class="hero-role">Enterprise Fullstack Developer<b>•</b>Spring Boot<b>•</b>Angular<b>•</b>Oracle</p>
+      <h2>BUILDING THE SYSTEMS PEOPLE DEPEND ON EVERY DAY.</h2>
+      <p class="hero-summary">Software developer in Cyberjaya working on Malaysian government immigration and permit systems — Java Spring Boot backends, Angular 19 frontends and Oracle databases, shipped as part of a full-stack team.</p>
+      <div class="hero-actions"><a class="button button-dark" href="#hub">ENTER MY SYSTEM <span>↓</span></a><a class="text-link" href="#projects">VIEW PROJECTS <span>↘</span></a></div>
+      <nav class="quicklinks" aria-label="Quick links"><a href="https://github.com/silmiabshar-dev" target="_blank" rel="noopener">GITHUB ↗</a><a href="https://linkedin.com/in/silmiabshar1505" target="_blank" rel="noopener">LINKEDIN ↗</a><a href="SilmiAbshar_SoftwareDeveloper.pdf" target="_blank">RESUME ↗</a><a href="mailto:you@example.com">EMAIL ↗</a></nav>
+    </div>
+    <dl class="hero-meta"><div><dt>LOCATION</dt><dd>BANGI, MY</dd></div><div><dt>STATUS</dt><dd><i class="dot"></i> OPEN TO WORK</dd></div><div><dt>FOCUS</dt><dd>ENTERPRISE SYSTEMS</dd></div></dl>
+    <span class="scroll-cue">SCROLL TO ENTER <i></i></span>
+  </section>
+
+  <section class="boot" aria-label="Entering the system">
+    <div class="boot-card reveal">
+      <p>ENTERING SILMI SYSTEM</p>
+      <ul><li>Backend <span>READY</span></li><li>Frontend <span>READY</span></li><li>Database <span>READY</span></li><li>Deployment <span>READY</span></li></ul>
+      <strong>ACCESS GRANTED</strong>
+      <h2>WELCOME TO SILMI SYSTEM.</h2>
+    </div>
+  </section>
+
+  <div class="infra">
+    <div class="infra-grid" aria-hidden="true"></div>
+
+    <section class="shell" id="hub">
+      <header class="hub reveal">
+        <div><p class="section-code">PORTFOLIO / ENTERPRISE FULLSTACK</p><h2 class="heading">SILMI ABSHAR<br>BIN KAHARUDDIN</h2></div>
+        <div class="hub-right"><p>Software Developer</p><b>HEITECH PADU BERHAD · CYBERJAYA</b>
+          <ul><li>Java / Spring Boot</li><li>Angular 19</li><li>Oracle</li><li>Laravel</li></ul>
+          <small><i class="dot"></i> OPEN TO OPPORTUNITIES</small></div>
+      </header>
+      <nav class="modules reveal" aria-label="Explore">
+        <a class="module wide" href="#projects"><span>SELECTED WORK</span><h3>PROJECTS</h3><p>Government, HR and leave systems I've built and maintained.</p><div class="module-lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div><em>EXPLORE 4 PROJECTS →</em></a>
+        <a class="module" href="#about"><span>PROFILE</span><h3>ABOUT</h3><p>Who I am and where I'm heading.</p><em>MEET SILMI →</em></a>
+        <a class="module" href="#experience"><span>EXPERIENCE</span><h3>EXPERIENCE</h3><p>Three roles, from internship to enterprise delivery.</p><em>VIEW EXPERIENCE →</em></a>
+        <a class="module" href="#stack"><span>TECHNOLOGY</span><h3>STACK</h3><p>Languages, frameworks and tools tied to real projects.</p><em>EXPLORE STACK →</em></a>
+        <a class="module" href="#contact"><span>CONTACT</span><h3>CONTACT</h3><p>Start a conversation about your next system.</p><em>CONNECT →</em></a>
+        <a class="module wide" href="https://github.com/silmiabshar-dev" target="_blank" rel="noopener"><span>CODE</span><h3>GITHUB</h3><p>Repositories, experiments and side projects.</p><em>OPEN GITHUB ↗</em></a>
+      </nav>
+    </section>
+
+    <section class="shell" id="about">
+      <header class="reveal"><p class="section-code">ABOUT / SILMI ABSHAR</p><h2 class="heading">ABOUT<br>SILMI</h2><span class="heading-sub">Backend, frontend and the database in between.</span></header>
+      <div class="about">
+        <article class="id-card reveal">
+          <div class="id-top"><span>SILMI ABSHAR BIN KAHARUDDIN</span><span><i class="dot"></i> OPEN</span></div>
+          <div class="id-name"><span>ENTERPRISE FULLSTACK</span><strong>SILMI</strong></div>
+          <dl><div><dt>LOCATION</dt><dd>Bandar Baru Bangi, Selangor</dd></div><div><dt>EMPLOYER</dt><dd>HeiTech Padu Berhad</dd></div><div><dt>EDUCATION</dt><dd>Diploma, Kolej Vokasional Gerik</dd></div><div><dt>EXPERIENCE</dt><dd>2+ years</dd></div></dl>
+        </article>
+        <div class="copy reveal">
+          <section><span>INTRODUCTION</span><p class="large">Full-stack developer working on national-scale immigration and permit systems, with a stack built around Java Spring Boot, Angular and Oracle.</p></section>
+          <section><span>WHAT I DO NOW</span><p>Develop Angular 19 frontends and integrate them with Spring Boot REST APIs for NIISe, the Malaysian immigration system. Day-to-day work covers JPA/Hibernate data access, Oracle query optimisation and Git-based delivery within a team.</p></section>
+          <section><span>WHERE I STARTED</span><p>Built a leave management system in PHP during my internship, then an HR platform in Laravel with AWS S3 storage, Telegram notifications and automated NAS backups as a junior engineer.</p></section>
+          <section><span>WHAT I'M LEARNING</span><p>Flutter for mobile, Figma for design, and distributed-systems tooling like Kafka. I also build games in Godot on the side.</p></section>
+          <section><span>DIRECTION</span><div class="focus"><b>Enterprise Backend</b><b>API Integration</b><b>Database Optimisation</b><b>Cloud Storage</b><b>Distributed Systems</b></div></section>
+          <a class="button button-light" href="SilmiAbshar_SoftwareDeveloper.pdf" target="_blank">VIEW RESUME <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell" id="experience">
+      <header class="reveal"><p class="section-code">EXPERIENCE / DELIVERY RECORD</p><h2 class="heading">REAL-WORLD<br>EXPERIENCE</h2><span class="heading-sub">From WordPress sites to government-scale systems.</span></header>
+      <div class="timeline">
+        <article class="role reveal"><div class="rail">JUL 2025 — PRESENT<i></i></div><div class="role-main"><p>HEITECH PADU BERHAD · CYBERJAYA</p><h3>Software Developer</h3><span>Contract · full-stack on NIISe</span><p>Delivering frontend modules and Spring Boot API integrations for Malaysia's national immigration system as part of an agile product team.</p>
+          <div class="impact"><div><strong>Angular 19</strong><span>frontend framework</span></div><div><strong>Oracle</strong><span>primary database</span></div><div><strong>Spring Boot</strong><span>backend services</span></div></div>
+          <ul><li>REST API integration</li><li>JPA / Hibernate</li><li>Oracle SQL</li><li>Git</li><li>Docker</li><li>MinIO</li></ul></div></article>
+        <article class="role reveal"><div class="rail">NOV 2024 — JUN 2025<i></i></div><div class="role-main"><p>ARENA AUCTIONEERS SDN BHD · SHAH ALAM</p><h3>Junior Software Engineer</h3><span>Laravel / PHP</span><p>Built and maintained the company HR system, integrated AWS S3 for document storage, scheduled Telegram notifications via cron, and automated Cloudways-to-NAS backups.</p>
+          <ul><li>Laravel</li><li>MySQL</li><li>AWS S3</li><li>Telegram Bot API</li><li>Cron</li><li>Cloudways</li></ul></div></article>
+        <article class="role reveal"><div class="rail">APR — SEP 2024<i></i></div><div class="role-main"><p>GOLAC COMMERCE (M) SDN BHD</p><h3>Intern IT &amp; Web Developer</h3><span>WordPress / PHP</span><p>Maintained company web properties and built G-Leave, an internal leave management system, from scratch.</p>
+          <ul><li>WordPress</li><li>PHP</li><li>MySQL</li><li>HTML / CSS</li></ul></div></article>
+      </div>
+    </section>
+
+    <section class="shell" id="projects">
+      <header class="reveal"><p class="section-code">PROJECTS / ENGINEERING PROOF</p><h2 class="heading">SELECTED<br>PROJECTS</h2><span class="heading-sub">Systems I designed, built or maintain.</span></header>
+      <article class="featured reveal">
+        <div><p>FLAGSHIP / CURRENT</p><h3>NIISe</h3><h4>National Integrated Immigration System</h4>
+          <p class="desc">Malaysia's national immigration and permit platform. I build Angular 19 frontend modules and wire them to Spring Boot services backed by Oracle, working on permit, application and review workflows.</p>
+          <ul class="tags"><li>Angular 19</li><li>Spring Boot</li><li>Oracle</li><li>JPA / Hibernate</li><li>MinIO</li><li>Docker</li></ul>
+          <a class="button button-light" href="#contact">ASK ME ABOUT THIS WORK <span>→</span></a></div>
+        <div class="flow" aria-label="NIISe request flow"><ol><li>ANGULAR CLIENT</li><li>REST API GATEWAY</li><li>SPRING BOOT SERVICE</li><li>JPA / HIBERNATE</li><li>ORACLE DATABASE</li></ol><aside>MINIO OBJECT STORAGE<b>DOCUMENTS &amp; ATTACHMENTS</b></aside></div>
+      </article>
+      <div class="project-grid">
+        <article class="project reveal"><p>HR PLATFORM</p><h3>ARENA HR</h3><h4>Laravel HR management system</h4><p class="desc">Employee records, document storage on S3, scheduled Telegram reminders and automated off-site backups.</p><ul class="tags"><li>Laravel</li><li>MySQL</li><li>AWS S3</li><li>Telegram</li></ul><a href="#experience">VIEW ROLE →</a></article>
+        <article class="project reveal"><p>INTERNAL TOOL</p><h3>G-LEAVE</h3><h4>Leave management system</h4><p class="desc">Built end-to-end during my internship: leave applications, approvals and balance tracking for staff.</p><ul class="tags"><li>PHP</li><li>MySQL</li><li>JavaScript</li></ul><a href="#experience">VIEW ROLE →</a></article>
+        <article class="project reveal"><p>FINAL YEAR PROJECT</p><h3>QUIZZYQUEST</h3><h4>Educational quiz game</h4><p class="desc">A game-based learning app built in Godot with GDScript — diploma final year project.</p><ul class="tags"><li>Godot</li><li>GDScript</li></ul><a href="https://github.com/silmiabshar-dev" target="_blank" rel="noopener">OPEN GITHUB ↗</a></article>
+      </div>
+    </section>
+
+    <section class="shell" id="stack">
+      <header class="reveal"><p class="section-code">STACK / TOOLS IN PRODUCTION</p><h2 class="heading">TECHNOLOGY<br>STACK</h2><span class="heading-sub">Core means used daily at work; working means used on shipped projects.</span></header>
+      <div class="stack reveal">
+        <div><h3>BACKEND</h3><ul><li class="core">Java / Spring Boot<b>CORE</b></li><li class="core">JPA / Hibernate<b>CORE</b></li><li>Laravel / PHP<b>WORKING</b></li><li>Python<b>WORKING</b></li></ul></div>
+        <div><h3>FRONTEND</h3><ul><li class="core">Angular 19 / TypeScript<b>CORE</b></li><li>HTML5 / CSS3<b>CORE</b></li><li>Vue<b>BASIC</b></li><li>Flutter<b>LEARNING</b></li></ul></div>
+        <div><h3>DATA &amp; STORAGE</h3><ul><li class="core">Oracle<b>CORE</b></li><li>MySQL<b>WORKING</b></li><li>AWS S3<b>WORKING</b></li><li>MinIO<b>WORKING</b></li></ul></div>
+        <div><h3>TOOLS</h3><ul><li class="core">Git<b>CORE</b></li><li>Docker<b>WORKING</b></li><li>Postman / Maven<b>WORKING</b></li><li>Godot / Figma<b>SIDE</b></li></ul></div>
+      </div>
+    </section>
+
+    <section class="shell" id="contact">
+      <div class="contact reveal">
+        <div><p class="section-code">CONTACT / START A CONVERSATION</p><h2 class="heading">LET'S<br>BUILD.</h2><span class="heading-sub">Open to full-stack and backend roles in Klang Valley, hybrid or remote.</span></div>
+        <div class="contact-links">
+          <a href="mailto:you@example.com">EMAIL<span>you@example.com</span></a>
+          <a href="https://linkedin.com/in/silmiabshar1505" target="_blank" rel="noopener">LINKEDIN<span>/in/silmiabshar1505</span></a>
+          <a href="https://github.com/silmiabshar-dev" target="_blank" rel="noopener">GITHUB<span>/silmiabshar-dev</span></a>
+          <a href="SilmiAbshar_SoftwareDeveloper.pdf" target="_blank">RESUME<span>PDF ↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <footer><span><i class="dot"></i> SILMI SYSTEM · ONLINE</span><span>BANDAR BARU BANGI, SELANGOR</span><span id="clock">—</span></footer>
+  </div>
+</main>
+
+<script>
+const root=document.documentElement,nav=document.getElementById('navbar'),meter=document.getElementById('meter');
+// greeting + theme
+const h=new Date().getHours();
+document.getElementById('greeting').textContent=h<12?'GOOD MORNING.':h<18?'GOOD AFTERNOON.':'GOOD EVENING.';
+function applyMode(m){root.dataset.mode=m;root.dataset.theme=m==='auto'?(h<7||h>=19?'night':'day'):m;
+  document.getElementById('envLabel').textContent=root.dataset.theme==='night'?'NIGHT OPERATIONS':'DAYLIGHT OPERATIONS';
+  document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mode===m));
+  try{localStorage.setItem('sa-theme',m)}catch{}}
+document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>applyMode(b.dataset.mode)));
+applyMode(root.dataset.mode||'auto');
+// scroll
+const onScroll=()=>{const y=scrollY,max=document.body.scrollHeight-innerHeight;nav.classList.toggle('scrolled',y>innerHeight*.7);meter.style.width=(max?y/max*100:0)+'%'};
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// menu
+const mt=document.getElementById('menuToggle'),links=document.getElementById('navLinks');
+mt.addEventListener('click',()=>{const o=links.classList.toggle('open');mt.setAttribute('aria-expanded',o)});
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+// clock
+const tick=()=>document.getElementById('clock').textContent=new Date().toLocaleTimeString('en-MY',{hour:'2-digit',minute:'2-digit'})+' MYT';tick();setInterval(tick,30000);
+</script>
+</body>
+</html>
